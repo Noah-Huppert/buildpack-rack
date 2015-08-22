@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Install Bower
 if [ -f $1/bower.json ]; then

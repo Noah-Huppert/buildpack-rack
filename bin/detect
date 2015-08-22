@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -f $1/config.ru ]; then
+    echo "Rack"
+    exit 0
+else
+    exit 1
+fi

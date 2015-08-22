@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Install Bower
+if [ -f $1/bower.json ]; then
+    echo "-----> Bower.json detected"
+    echo "       Installing Bower dependencies"
+
+    bower Install
+fi
+
+# Install Gems
+if [ -f $/Gemfile ]; then
+    echo "-----> Gemfile detected"
+    echo "       Installing gems"
+
+    bundle install
+fi
+
+# Install Rack
+{
+    rackup --version
+} &> /dev/null
+
+rackup_version_exit_code=$?
+
+if [[ $rackup_version_exit_code != 0 ]]; then
+    gem install rack
+fi

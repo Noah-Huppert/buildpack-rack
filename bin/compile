@@ -6,6 +6,8 @@ if [ -f $1/bower.json ]; then
     echo "       Installing Bower dependencies"
 
     bower Install
+else
+    echo "-----> Bower.json NOT detected"
 fi
 
 # Install Gems
@@ -14,6 +16,8 @@ if [ -f $/Gemfile ]; then
     echo "       Installing gems"
 
     bundle install
+else
+    echo "-----> Gemfile NOT detected"
 fi
 
 # Install Rack
@@ -24,5 +28,11 @@ fi
 rackup_version_exit_code=$?
 
 if [[ $rackup_version_exit_code != 0 ]]; then
+    echo "-----> Rack NOT installed"
+    echo "       Installing Rack"
+
     gem install rack
+else
+    echo "-----> Rack installed"
+    echo "       $(rackup --version)"
 fi

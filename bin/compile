@@ -1,5 +1,43 @@
 #!/bin/bash
 
+# Install Rack
+echo "-----> Checking Rack version"
+
+{
+    rackup --version
+} &> /dev/null
+
+rackup_version_exit_code=$?
+
+if [[ $rackup_version_exit_code != 0 ]]; then
+    echo "-----> Rack NOT installed"
+    echo "       Installing Rack"
+
+    gem install rack
+else
+    echo "-----> Rack installed"
+    echo "       $(rackup --version)"
+fi
+
+# Install Bundler
+echo "-----> Checking Bundler version"
+
+{
+    bundle --version
+} &> /dev/null
+
+bundle_version_exit_code=$?
+
+if [[ $bundle_version_exit_code != 0 ]]; then
+    echo "-----> Bundler NOT installed"
+    echo "       Installing Bundler"
+
+    gem install bundler
+else
+    echo "-----> Bundler installed"
+    echo "       $(bundle --version)"
+fi
+
 # Install Bower
 if [ -f $1/bower.json ]; then
     echo "-----> Bower.json detected"
@@ -18,23 +56,4 @@ if [ -f $/Gemfile ]; then
     bundle install
 else
     echo "-----> Gemfile NOT detected"
-fi
-
-# Install Rack
-echo "-----> Checking Rack version"
-
-{
-    rackup --version
-} &> /dev/null
-
-rackup_version_exit_code=$?
-
-if [[ $rackup_version_exit_code != 0 ]]; then
-    echo "-----> Rack NOT installed"
-    echo "       Installing Rack"
-
-    gem install rack
-else
-    echo "-----> Rack installed"
-    echo "       $(rackup --version)"
 fi

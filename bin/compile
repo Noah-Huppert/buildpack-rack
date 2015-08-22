@@ -21,6 +21,8 @@ else
 fi
 
 # Install Rack
+echo "-----> Checking Rack version"
+
 {
     rackup --version
 } &> /dev/null

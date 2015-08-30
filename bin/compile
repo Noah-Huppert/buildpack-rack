@@ -3,7 +3,7 @@
 echo "USER => \"$USER\""
 echo "PWD  => $(pwd)"
 echo "LS   => $(ls -a -l)"
-echo "GEMS => $(ls /var/lib -l | grep gems)"
+echo "GEMS => $(ls /var/lib -l)"
 
 # Install Rack
 echo "-----> Checking Rack version"

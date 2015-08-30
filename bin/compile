@@ -1,9 +1,6 @@
 #!/bin/bash
 
-echo "USER => \"$USER\""
-echo "PWD  => $(pwd)"
-echo "LS   => $(ls -a -l)"
-echo "GEMS => $(ls /var/lib -l -a)"
+echo "USER => $(whoami)"
 
 # Install Rack
 echo "-----> Checking Rack version"

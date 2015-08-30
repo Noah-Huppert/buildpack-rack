@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "USER => $USER"
+
 # Install Rack
 echo "-----> Checking Rack version"
 

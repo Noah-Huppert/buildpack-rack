@@ -12,7 +12,7 @@ if [[ $rackup_version_exit_code != 0 ]]; then
     echo "-----> Rack NOT installed"
     echo "       Installing Rack"
 
-    gem install rack
+    sudo gem install rack
 else
     echo "-----> Rack installed"
     echo "       $(rackup --version)"
@@ -31,7 +31,7 @@ if [[ $bundle_version_exit_code != 0 ]]; then
     echo "-----> Bundler NOT installed"
     echo "       Installing Bundler"
 
-    gem install bundler
+    sudo gem install bundler
 else
     echo "-----> Bundler installed"
     echo "       $(bundle --version)"

@@ -12,6 +12,7 @@ if [[ $rackup_version_exit_code != 0 ]]; then
     echo "-----> Rack NOT installed"
     echo "       Installing Rack"
 
+    gem
     gem install rack
 else
     echo "-----> Rack installed"

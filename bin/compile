@@ -12,7 +12,6 @@ if [[ $rackup_version_exit_code != 0 ]]; then
     echo "-----> Rack NOT installed"
     echo "       Installing Rack"
 
-    gem
     gem install rack
 else
     echo "-----> Rack installed"
@@ -39,6 +38,25 @@ else
 fi
 
 # Install Bower
+echo "-----> Checking Bower version"
+
+{
+    bower --version
+} &> /dev/null
+
+bower_version_exit_code=$?
+
+if [[ $bower_version_exit_code != 0 ]]; then
+    echo "-----> Bower NOT installed"
+    echo "       Installing bower"
+
+    npm install bower -g
+else
+    echo "-----> Bower installed"
+    echo "       $(bower --version)"
+fi
+
+# Install Bower Dependencies
 if [ -f $1/bower.json ]; then
     echo "-----> Bower.json detected"
     echo "       Installing Bower dependencies"
